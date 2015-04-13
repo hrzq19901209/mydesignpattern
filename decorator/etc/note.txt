@@ -1,0 +1,21 @@
+ 要理解修饰模式首先要来理解他的目的。
+ 他的目的就是为一些类动态地添加一些功能，通俗点讲就是这些类不能满足我们的需要，
+ 比方说猪、狗、毛都都有跑的功能，但我们想让他们跑的时候还同时吃，这是我们就需要
+ 用到修饰类，这样比继承更灵活。
+ 具体的实现
+ 比如，猪实现了动物这个接口Animal，这个接口中有个需要被实现的方法run();
+ 现在我们可以创建一个类EatAnimal,它同时也实现了Animal中的方法run().
+ 但是EatAnimal中有一个属性Animal decorator，它用来存储被修饰的动物，在代码中的表现是
+ 这样的
+		Animal decorator;
+		public EatAnimal(Animal decorator){
+			this.decorator = decorator;
+		}
+以上用到了多态，在获取了被修饰动物的对象的时候，我们也能获得他们的方法，这时候我们就可以
+在EatAnimal的run()方法中使用被修饰动物的run()方法，并且可以为run()方法添加功能，具体代码如下
+	@Override
+	public void run(){
+		decorator.run();
+		吃。。。
+	}
+这样，猪就跑的时候也能吃东西了。
