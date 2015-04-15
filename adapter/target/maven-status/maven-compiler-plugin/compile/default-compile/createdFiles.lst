@@ -1,0 +1,4 @@
+com\lol\adapter\App.class
+com\lol\adapter\MobilePowerAdapter.class
+com\lol\adapter\Target.class
+com\lol\adapter\Power.class
